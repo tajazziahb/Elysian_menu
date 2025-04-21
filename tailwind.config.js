@@ -1,8 +1,7 @@
 module.exports = {
   content: [
-    "./*.html",
-    "./**/*.html",
-    "./src/**/*.{js,ts,vue,html}"
+    "./src/**/*.{html,js}",
+    "./public/**/*.html",
   ],
   theme: {
     extend: {},

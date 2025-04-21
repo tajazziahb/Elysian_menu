@@ -2,9 +2,8 @@
   "name": "elysian_menu",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
-    "dev": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "dev": "tailwindcss -i ./src/input.css -o ./public/dist/output.css --watch",
     "build": "tailwindcss -i ./src/input.css -o ./public/dist/output.css --minify"
   },
   "keywords": [],
