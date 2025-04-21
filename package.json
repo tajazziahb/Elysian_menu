@@ -4,7 +4,8 @@
   "description": "",
   "scripts": {
   "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-  "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+  "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+  "postinstall": "npm install"  // Add this to ensure dependencies are installed
 },
 
   "keywords": [],
