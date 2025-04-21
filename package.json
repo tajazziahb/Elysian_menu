@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Elysian Dispensary Menu",
   "scripts": {
-    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+  "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+  "build": "npm install && npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+
   },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
