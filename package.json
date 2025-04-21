@@ -1,16 +1,11 @@
 {
   "name": "elysian_menu",
   "version": "1.0.0",
-  "description": "",
+  "description": "Elysian Dispensary Menu",
   "scripts": {
-  "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
-  "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
-  "postinstall": "npm install" 
-},
-
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+    "dev": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch",
+    "build": "npx tailwindcss -i ./src/input.css -o ./dist/output.css --minify"
+  },
   "devDependencies": {
     "autoprefixer": "^10.4.21",
     "daisyui": "^3.3.1",
