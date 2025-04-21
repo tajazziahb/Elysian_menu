@@ -1,0 +1,401 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Layout for the Menu Section */
+.menu {
+  padding: 3rem 2rem;
+  background-color: #f5f5f5; /* Soft background to avoid distraction */
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.menu-title {
+  font-size: 2.5rem;
+  font-weight: 600;
+  text-align: center;
+  color: #2e2e2e;
+  margin-bottom: 3rem;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.tab {
+  padding: 1rem;
+  cursor: pointer;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.tab.active {
+  background-color: #1b4332;
+  color: white;
+}
+
+/* Container for the main content area */
+.container {
+  display: flex;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+/* Sidebar for filters */
+.filter-sidebar {
+  flex: 1;
+  background-color: #f5f5f5;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Sidebar filter titles */
+.filter-sidebar h3,
+.filter-sidebar h4 {
+  color: #1B4332;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Product list section */
+.product-list {
+  flex: 3;
+}
+
+/* Product container */
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+/* Product Cards */
+.product-card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 600px; /* Increased height to fit more information */
+  width: 300px; /* Added width for better layout */
+  transform-style: preserve-3d;
+}
+
+/* Front of the card */
+.product-card .flip-front {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  backface-visibility: hidden;
+}
+
+.product-name {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.product-image {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.thc-potency {
+  font-size: 1rem;
+  color: #1b4332;
+  margin-bottom: 1rem;
+}
+
+.product-brand,
+.product-type {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #1b4332;
+  margin-bottom: 1rem;
+}
+
+.add-to-cart-btn {
+  background-color: #555; 
+  color: white;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  transform: scale(1);
+  width: 100%; /* Make the button take up full width of card */
+}
+
+/* Glow effect for the "Add to Cart" button */
+.add-to-cart-btn:disabled {
+  background-color: #4b8a3d; /* Change color to indicate "Added" */
+  cursor: not-allowed; /* Disable button after click */
+}
+
+.add-to-cart-btn:hover {
+  background-color: #4b8a3d;
+  box-shadow: 0 8px 15px rgba(0, 255, 255, 0.5);
+  transform: scale(1.1);
+}
+
+.flip-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  padding: 1rem;
+  background-color: #f8f8f8;
+  color: #333;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style for the back of the card */
+.flip-back h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.flip-back p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+/* Add 3D effect to product card on hover (only after clicking the card) */
+.product-card.clicked {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cart-btn {
+  position: relative;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.cart-count {
+  position: absolute;
+  top: 0;
+  right: -8px;
+  background-color: #1B4332;
+  color: white;
+  padding: 0.2rem 0.5rem;
+  border-radius: 50%;
+  font-size: 0.9rem;
+}
+
+/* Cart Modal Styles - Sliding from the right */
+.cart-modal {
+    position: fixed;
+    top: 0;
+    right: -100%; /* Start offscreen */
+    width: 320px;
+    height: 100%;
+    background: #ffffff;
+    transition: right 0.3s ease;
+    z-index: 1000;
+  }
+  
+  .cart-modal.hidden {
+    right: 0;
+  }
+.cart-modal.active {
+    transform: translateX(0); /* Slide into view */
+}
+
+.cart-content {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 12px;
+    width: 400px;
+    max-height: 80%;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.cart-items {
+    margin-bottom: 2rem;
+}
+
+.cart-items .cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.cart-total {
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+#close-cart-btn {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #1B4332;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+#close-cart-btn:hover {
+    background-color: #444;
+}
+
+.hidden {
+    display: none;
+}
+/* Toast notification styles */
+.toast {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #4caf50; /* Green background */
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    display: none; /* Hidden by default */
+    z-index: 9999;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+  }
+  
+  .toast.show {
+    display: block;
+    opacity: 1;
+  }
+  /* Checkout Button */
+.checkout-btn {
+    background-color: #1b4332;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    margin-top: 1rem;
+  }
+  
+  .checkout-btn:hover {
+    background-color: #4d9c6e;
+  }
+/* Logo Styling */
+#logo {
+    font-family: 'Cinzel', serif;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1b4332;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    position: fixed; /* Keep the logo fixed at the top */
+    left: 20px;
+    top: 20px;
+    cursor: pointer;
+    z-index: 10; /* Ensure logo is above other elements */
+    animation: shimmer 3s ease-in-out infinite, bounce 1s infinite alternate; /* Apply shimmer and bounce */
+  }
+  
+  /* Shimmer animation */
+  @keyframes shimmer {
+    0% {
+      color: #1b4332;
+    }
+    50% {
+      color: #f1c40f; /* Shimmer effect in golden color */
+    }
+    100% {
+      color: #1b4332;
+    }
+  }
+  
+  /* Bounce animation */
+  @keyframes bounce {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px); /* Bounce up */
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  /* Add laurel wreath icon to logo */
+  #logo::before {
+    content: "🌿"; 
+    font-size: 2.5rem;
+    margin-right: 10px;
+    animation: bounce 1s infinite alternate; /* Apply bounce to the wreath icon */
+  }
+  
+  #main-nav {
+    position: fixed; /* Ensure the navbar stays on top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
+    z-index: 5; /* Place navbar below the logo */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Navbar Styling */
+  #main-nav ul {
+    display: flex;
+    justify-content: flex-end;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  #main-nav a {
+    color: #1B4332;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  #main-nav a:hover {
+    color: #b5e48c; /* Hover effect */
+  }
+    
+  
