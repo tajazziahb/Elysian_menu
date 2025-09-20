@@ -1,0 +1,202 @@
+/* Flip Card Shared Style */
+.flip-card {
+    background: linear-gradient(to right, #f4ecd8, #fcefe8); /* Soft pastel gradient */
+    color: #7c4a57; /* Muted text color */
+    border-radius: 16px;
+    perspective: 1000px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+/* Flip Mechanism */
+.flip-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.6s ease-in-out;
+}
+
+.flipped .flip-inner {
+    transform: rotateY(180deg);
+}
+
+/* Flip Front and Back Layout */
+.flip-front, .flip-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    box-sizing: border-box;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.flip-front {
+    z-index: 2;
+}
+
+.flip-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(to right, #f4ecd8, #fcefe8); /* Soft background */
+    color: #7c4a57;
+    border-left: 2px solid #e0cfc4; /* Soft border for separation */
+}
+
+/* Button inside the flip card back */
+.flip-back .btn {
+    background-color: #2f2f2f;
+    color: white;
+    padding: 0.5rem 1.25rem;
+    border-radius: 6px;
+    margin-top: 0.75rem;
+    transition: background 0.3s;
+}
+
+.flip-back .btn:hover {
+    background-color: #444;
+}
+
+/* Grid Layout for Flip Cards */
+#product-container {
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Compact card size */
+}
+
+/* Flip Card Size Adjustments */
+.flip-card {
+    width: 100%;
+    max-width: 280px; /* Reduced max-width for compact design */
+    height: 380px; /* Reduced height for a sleeker look */
+}
+
+/* Hover Effect */
+.flip-card:hover {
+    box-shadow: 0 0 10px rgba(215, 186, 100, 0.4); /* Lighter shadow for cleaner look */
+}
+
+/* === LIST VIEW STYLING === */
+#product-container.list-view {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* List View Flip Card Size */
+.flip-card.list-mode {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    max-width: 100%;
+    border-radius: 20px;
+}
+
+.flip-card.list-mode .flip-inner {
+    flex-direction: row;
+}
+
+/* List View Layout */
+.flip-card.list-mode .flip-front,
+.flip-card.list-mode .flip-back {
+    flex: 1;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 2rem;
+}
+
+.flip-card.list-mode .flip-front {
+    flex-direction: row;
+}
+
+.flip-card.list-mode .flip-front img {
+    width: 140px;
+    height: auto;
+    margin-right: 1.5rem;
+    border-radius: 12px;
+}
+
+.flip-card.list-mode .flip-back {
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+/* Hover Effects in List View */
+.flip-card.list-mode:hover {
+    box-shadow: 0 0 12px rgba(215, 186, 100, 0.6);
+}
+
+/* Compact List View Layout */
+#product-container.list-view .flip-card {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background: linear-gradient(to right, #f4ecd8, #fcefe8); /* Subtle background */
+    border-radius: 1rem;
+    overflow: hidden;
+    margin: 0 auto 1rem auto;
+    padding: 0.5rem;
+    max-width: 750px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#product-container.list-view .flip-inner {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+#product-container.list-view .flip-front,
+#product-container.list-view .flip-back {
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    width: 100%;
+    color: #7c4a57;
+    background-color: transparent;
+}
+
+#product-container.list-view .flip-front img,
+#product-container.list-view .flip-back img {
+    width: 90px; /* Smaller image size */
+    height: 90px;
+    border-radius: 0.75rem;
+    object-fit: cover;
+}
+
+#product-container.list-view .flip-front .p-2,
+#product-container.list-view .flip-back .p-2 {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+}
+
+#product-container.list-view .flip-back {
+    border-left: 2px solid #e0cfc4;
+}
+
+#product-container.list-view .btn {
+    background-color: #2f2f2f;
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    width: fit-content;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+    #product-container {
+        grid-template-columns: 1fr; /* Stack cards vertically on smaller screens */
+    }
+}

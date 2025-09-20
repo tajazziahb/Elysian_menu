@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elysian Dispensary</title>
+  <link rel="stylesheet" href="./dist/output.css" />
+  <link rel="stylesheet" href="./flip-card-styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Urbanist:wght@400;600;700&family=Playfair+Display:wght@500;700&family=Raleway:wght@400;600&display=swap"
+    rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-br from-[#f1f8f6] via-[#e0e8e2] to-[#d2e2cb] text-[#1B4332] font-sans"
+  style="font-family: 'Playfair Display', serif;">
+
+  <!-- Navigation Bar -->
+  <nav id="main-nav">
+    <div class="text-3xl font-bold tracking-wide" style="font-family: 'Playfair Display', serif;">
+      <div id="logo">Elysian</div> <!-- Logo with bounce and shimmer -->
+    </div>
+    <ul class="flex space-x-6 text-lg">
+      <li><a href="#" class="hover:text-[#b5e48c] transition">Home</a></li>
+      <li><a href="#product-section" class="hover:text-[#b5e48c] transition">Products</a></li>
+      <li><a href="#" class="hover:text-[#b5e48c] transition">About</a></li>
+      <li><a href="#" class="hover:text-[#b5e48c] transition">Contact</a></li>
+      <li><a href="#cart-modal" id="cart-toggle">Cart 🛒 <span id="cart-count" class="hidden">0</span></a></li>
+      
+    </ul>
+  </nav>
+
+  <!-- Age Verification Modal -->
+  <div id="age-gate"
+    class="fixed inset-0 flex flex-col justify-center items-center bg-gradient-to-b from-[#1B4332] to-[#081c15] text-white z-50 text-center p-6 fade-in">
+    <h2 class="text-5xl font-bold mb-4 animate-pulse" style="font-family: 'Raleway', sans-serif;">Welcome to Elysian 🌿
+    </h2>
+    <p class="mb-6 text-lg max-w-md">Before entering paradise, confirm you're 21+ 💫</p>
+    <div class="space-x-4">
+      <button class="btn bg-[#b5e48c] text-[#1B4332] px-6 py-2 text-lg rounded hover:bg-[#a2d17d] transition"
+        id="btn-yes">Yes, I am</button>
+      <button class="btn bg-[#ff6b6b] text-white px-6 py-2 text-lg rounded hover:bg-[#e05555] transition"
+        id="btn-no">Nope</button>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="hero" class="relative w-full h-[400px] md:h-[500px] lg:h-[600px] overflow-hidden mb-12">
+    <img src="./cat-images/cannaplant.png" alt="Cannabis field" class="absolute inset-0 w-full h-full object-cover" />
+    <div
+      class="absolute inset-0 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white text-center p-4">
+      <h1 id="hero-text" class="text-4xl md:text-6xl font-bold mb-4 transition-opacity duration-700"
+        style="font-family: 'Playfair Display', serif;">🌿 Flower of the Week</h1>
+      <p class="text-lg md:text-xl max-w-2xl mb-4" style="font-family: 'Raleway', sans-serif;">Experience the elevated
+        vibes of Elysian’s top picks, hand-selected for your lifestyle.</p>
+      <a href="#product-section" class="btn bg-[#b5e48c] text-[#1B4332] px-6 py-3 text-lg rounded hover:bg-[#a2d17d] transition">Browse
+        Collection</a>
+    </div>
+  </section>
+
+  <!-- Category Section -->
+  <section class="categories">
+    <h2 class="text-3xl font-semibold mb-6 text-center animate-fade-in" style="font-family: 'Playfair Display', serif;">
+      Shop by Category</h2>
+
+    <!-- Tab Navigation -->
+    <div class="tabs flex justify-center gap-4 mb-6">
+      <button class="tab active" data-category="flower">Flower</button>
+      <button class="tab" data-category="edibles">Edibles</button>
+      <button class="tab" data-category="prerolls">Prerolls</button>
+      <button class="tab" data-category="vaporizers">Vaporizers</button>
+      <button class="tab" data-category="concentrates">Concentrates</button>
+      <button class="tab" data-category="tinctures">Tinctures</button>
+      <button class="tab" data-category="topicals">Topicals</button>
+      <button class="tab" data-category="apparel">Apparel</button>
+      <button class="tab" data-category="accessories">Accessories</button>
+    </div>
+
+
+    <!-- Product Section -->
+    <section id="product-section" class="hidden px-6 py-10 max-w-7xl mx-auto scroll-mt-24">
+
+      <div id="product-container" class="grid md:grid-cols-3 gap-6">
+        <!-- Product cards will be populated here dynamically -->
+      </div>
+    </section>
+
+    <div id="product-container" class="grid md:grid-cols-3 gap-6">
+      <!-- Product cards will be populated here dynamically -->
+    </div>
+  </section>
+
+  <div id="product-container" class="grid md:grid-cols-3 gap-6">
+    <!-- Product cards will be populated here -->
+  </div>
+  </section>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="modal hidden">
+    <div id="cart-items"></div>
+    <p>Total: $<span id="cart-total">0.00</span></p>
+    <!-- Checkout Button -->
+    <button id="checkout-btn" class="btn checkout-btn">Proceed to Checkout</button>
+    <button id="close-cart-btn" class="close-cart-btn">Close</button>
+
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="bg-[#1B4332] text-white py-6 mt-12">
+    <div class="max-w-7xl mx-auto px-6 flex justify-between items-center">
+      <div>
+        <h3 class="text-2xl font-bold">Elysian Dispensary</h3>
+        <p class="mt-2">Your premium cannabis destination for top-quality products.</p>
+      </div>
+      <div>
+        <ul class="space-y-2">
+          <li><a href="#" class="text-[#b5e48c] hover:text-[#a2d17d]">Privacy Policy</a></li>
+          <li><a href="#" class="text-[#b5e48c] hover:text-[#a2d17d]">Terms & Conditions</a></li>
+          <li><a href="mailto:contact@elysiandispensary.com" class="text-[#b5e48c] hover:text-[#a2d17d]">Contact
+              Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="text-center text-sm mt-4">
+      <p>&copy 2025 Elysian Dispensary. All rights reserved.</p>
+    </div>
+    </div>
+  </footer>
+
+  <script src="./js/main.js"></script>
+</body>
+
+</html>
